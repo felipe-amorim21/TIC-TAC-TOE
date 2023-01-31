@@ -9,11 +9,24 @@
     <title>Tic Tac Toe</title>
 </head>
 <body>
-    <form action="">
-        
-    </form>
+    <div class="gameform">
+        <form action="">
+            <fieldset>
+                <button id="close">
+                    <img src="assets/close.png" alt="close button">
+                </button>
+                <label for="player1">Player1 name: </label>
+                <input type="text" name="player1_name" id="player1_name">
+                <br>
+                <label for="player2">Player2 name: </label>
+                <input type="text" name="player2_name" id="player2_name">
+                <br>
+                <button class="playbtn" id="startbtn">Jogar</button>
+            </fieldset>
+        </form>
+    </div>
+    <button class="playbtn" id="play">Jogar</button>
     <div class="main">
-        <button class="playbtn"''>Jogar</button>
         <div class="gameboard">
             <div class="tile"></div>
             <div class="tile border-vertical">X</div>
