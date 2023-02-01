@@ -58,6 +58,61 @@ function fillGrid() {
 }
 
 
+function winHandle() {
+    let winner = 0
+    // Check rows
+    for (let i = 0; i < Gameboard.gameBoard.length; i += 3) {
+      if (Gameboard.gameBoard[i] === Gameboard.gameBoard[i + 1] && Gameboard.gameBoard[i + 1] === Gameboard.gameBoard[i + 2]) {
+        if (Gameboard.gameBoard[i] === player1.getMarker()){
+            winner = player1.getName()
+            ( alert(`Player ${winner} has won the game!`))
+        } else {
+            winner = player2.getName()
+            alert(`Player ${winner} has won the game!`)
+        }
+      }
+    }
+  
+    // Check columns
+    for (let i = 0; i < 3; i+= 1) {
+      if (Gameboard.gameBoard[i] === Gameboard.gameBoard[i + 3] && Gameboard.gameBoard[i + 3] === Gameboard.gameBoard[i + 6]) {
+        if (Gameboard.gameBoard[i] === player1.getMarker()){
+            winner = player1.getName()
+            alert(`Player ${winner} has won the game!`)
+        } else {
+            winner = player2.getName()
+            alert(`Player ${winner} has won the game!`)
+        }
+      }
+    }
+  
+    // Check diagonal (top-left to bottom-right)
+    if (Gameboard.gameBoard[0] === Gameboard.gameBoard[4] && Gameboard.gameBoard[4] === Gameboard.gameBoard[8]) {
+        if (Gameboard.gameBoard[0] === player1.getMarker()){
+            winner = player1.getName()
+            alert(`Player ${winner} has won the game!`)
+        } else {
+            winner = player2.getName()
+            alert(`Player ${winner} has won the game!`)
+        }
+    }
+  
+    // Check diagonal (top-right to bottom-left)
+    if (Gameboard.gameBoard[2] === Gameboard.gameBoard[4] && Gameboard.gameBoard[4] === Gameboard.gameBoard[6]) {
+        if (Gameboard.gameBoard[2] === player1.getMarker()){
+            winner = player1.getName()
+            alert(`Player ${winner} has won the game!`)
+        } else {
+            winner = player2.getName()
+            alert(`Player ${winner} has won the game!`)
+        }
+    }
+  
+    // No winner
+    if (winner === 0){
+        alert( `alert it's a tie!`)
+    }
+  }
   
 
 
