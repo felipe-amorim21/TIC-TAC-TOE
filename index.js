@@ -2,18 +2,20 @@ const playbtn = document.getElementById('play')
 const playerform = document.querySelector('form')
 const closebtn = document.getElementById('close')
 const startbtn = document.getElementById('startbtn')
+const tiles = document.getElementsByClassName('tile')
 
 let player1 
 let player2 
 
 const Player = (name, marker) => {
     const getName  = () => name;
-    return {name, marker, getName}
+    const getMarker  = () => marker;
+    return {getMarker, getName}
 }
 
 
 const Gameboard = (() => {
-    let gameBoard = ['X','X','O','X','O','O','X','O','X']
+    let gameBoard = ['O','O','O','X','X','O','O','X','X']
     return {gameBoard}
 })()
 
@@ -47,4 +49,15 @@ startbtn.addEventListener('click', (e) => {
     if(e.preventDefault){e.preventDefault()}else{e.returnValue=false}
 
 })
+
+
+function fillGrid() {
+    Gameboard.gameBoard.forEach((element, index) => {
+        tiles[index].textContent = element;
+    });
+}
+
+
+  
+
 
