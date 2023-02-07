@@ -139,26 +139,29 @@ function winHandle() {
 function play(){
 
     tiles.forEach(tile => tile.addEventListener('click', () => {
-        if (player1.turn === true ) {
-            tile.textContent = player1.getMarker()
-            Gameboard.gameBoard[tile.id] = tile.textContent
-            player1.turn = false
-            player2.turn = true
-            fillGrid()
-            count += 1
-            winHandle()
+        if (tile.textContent === ''){
+            if (player1.turn === true ) {
+                tile.textContent = player1.getMarker()
+                Gameboard.gameBoard[tile.id] = tile.textContent
+                player1.turn = false
+                player2.turn = true
+                fillGrid()
+                count += 1
+                winHandle()
+            }
+            else {
+                tile.textContent = player2.getMarker()
+                Gameboard.gameBoard[tile.id] = tile.textContent
+                player1.turn = true
+                player2.turn = false
+                fillGrid()
+                count += 1
+                winHandle()
+            }
+        }}))
+
         }
-        else {
-            tile.textContent = player2.getMarker()
-            Gameboard.gameBoard[tile.id] = tile.textContent
-            player1.turn = true
-            player2.turn = false
-            fillGrid()
-            count += 1
-            winHandle()
-        }
-    }))
-}
+        
 
 
 startbtn.addEventListener('click', (e) => {
